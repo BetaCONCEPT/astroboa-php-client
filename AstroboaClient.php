@@ -21,7 +21,7 @@
  * 
  */
 
-require 'RestRequest.php';
+require_once(dirname(__FILE__) . '/RestRequest.php');
 
 class AstroboaClient {
 	
