@@ -10,7 +10,7 @@ EXAMPLE:
 
 require_once('AstroboaClient.php');
 
-secureAstroboaClient = new AstroboaClient('localhost:8080', 'myRepository', 'username', 'password');
+$secureAstroboaClient = new AstroboaClient('localhost:8080', 'myRepository', 'username', 'password');
 
 // Add a new person
 $person = array(
