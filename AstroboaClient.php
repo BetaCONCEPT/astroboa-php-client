@@ -21,7 +21,7 @@
  * 
  */
 
-require_once(rtrim(dirname(__FILE__), '/\\') . DIRECTORY_SEPARATOR . '/RestRequest.php');
+require_once(rtrim(dirname(__FILE__), '/\\') . DIRECTORY_SEPARATOR . 'RestRequest.php');
 
 class AstroboaClient {
 	
