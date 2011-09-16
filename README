@@ -1,4 +1,4 @@
-While you can directly use the REST-based "Astroboa Resource API" directly from your PHP projects using curl, Astroboa PHP client greatly eases your work.
+While you can directly use the REST-based "Astroboa Resource API" from your PHP projects using curl, Astroboa PHP client greatly eases your work.
 
 The PHP client allows you to read and write content in any local or remote astroboa repository with just a few lines of code.
 
