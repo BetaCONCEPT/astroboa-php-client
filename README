@@ -1,0 +1,69 @@
+While you can directly use the REST-based "Astroboa Resource API" directly from your PHP projects using curl, Astroboa PHP client greatly eases your work.
+
+The PHP client allows you to read and write content in any local or remote astroboa repository with just a few lines of code.
+
+To use the PHP client just copy the two classes in your PHP project and read the documentation at http://www.astroboa.org/section/astroboa-php-client. You can instantly try the examples provided in the documentation without setting up your own repository since they use the online astroboa demo repository that holds books from the Gutenberg Projects.
+
+If you are eager to see how the client works find below an example that creates a new user and then reads her back from the repository and updates her birthday
+
+EXAMPLE:
+
+require_once('AstroboaClient.php');
+
+secureAstroboaClient = new AstroboaClient('localhost:8080', 'myRepository', 'username', 'password');
+
+// Add a new person
+$person = array(
+			"contentObjectTypeName" => "personObject"
+		);
+
+$person['title'] = 'Elena Brown';						
+			);
+$person['name']['givenName'] = 'Elena';
+$person['name']['familyName'] = 'Brown';
+
+
+$response = $secureAstroboaClient->addObject($person);
+if ($response->ok()) {
+	$userId = $request->getResponseBody();
+	error_log('successfully created new person object with id: ' . $userId);
+}
+else {
+	$responseInfo = $response->getResponseInfo();
+	error_log('An error occurred while trying to save new user profile. The error response from Resource API is:' . $responseInfo['http_code']);	
+}
+
+
+
+// Read the person and update it
+// Elena-Brown is an auto-generated friendly internal name that can be used besides the object id
+$response = $secureAstroboaClient->getObjectByIdOrName('Elena-Brown'); 
+
+if ($response->ok()) {
+	$person = $response->getResponseBodyAsArray();
+	// if you prefer to get the response as object use: $person = $response->getResponseBodyAsObject();
+	
+	$time = mktime(0,0,0, 9, 27, 1985);
+	$iso8601Birthday = date('Y-m-d\TH:i:s.uP', $time);
+	$person['birthday'] = $iso8601Birthday;
+	
+	$updateResponse = $this->secureAstroboaClient->updateObject($person);
+		if ($updateResponse->ok) {
+			error_log('Successfully updated user: ' . $person['profile']['title']);
+		}
+		else {
+			$responseInfo = $updateResponse->getResponseInfo();
+			error_log('An error occurred while trying to persist user profile. The error response from Resource API is:' . $responseInfo['http_code']);
+		}
+
+}
+else {
+	$responseInfo = $response->getResponseInfo();
+	error_log('The query that finds the user returned with error code: '. $responseInfo['http_code']);
+} 
+
+
+
+
+   
+
