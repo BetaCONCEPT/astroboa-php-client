@@ -2,7 +2,7 @@ While you can directly use the REST-based "Astroboa Resource API" from your PHP 
 
 The PHP client allows you to read and write content in any local or remote astroboa repository with just a few lines of code.
 
-To use the PHP client just copy the two classes in your PHP project and read the documentation at http://www.astroboa.org/section/astroboa-php-client. You can instantly try the examples provided in the documentation without setting up your own repository since they use the online astroboa demo repository that holds books from the Gutenberg Projects.
+To use the PHP client just copy the two classes in your PHP project and read the documentation at http://www.astroboa.org/section/astroboa-php-client. You can instantly try the examples provided in the documentation without setting up your own repository since they use the online astroboa demo repository that holds books from the Gutenberg Project.
 
 If you are eager to see how the client works find below an example that creates a new user and then reads her back from the repository and updates her birthday
 
