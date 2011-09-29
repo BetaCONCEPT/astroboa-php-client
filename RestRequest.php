@@ -352,7 +352,7 @@ class RestRequest
 	public function ok() {
 		if (!empty($this->responseInfo)) {
 			if (
-				(($this->verb == 'GET' || $this->verb == 'PUT') && $this->responseInfo['http_code'] == '200') 
+				(($this->verb == 'GET' || $this->verb == 'PUT' || $this->verb == 'DELETE') && $this->responseInfo['http_code'] == '200') 
 				or 
 				($this->verb == 'POST' && $this->responseInfo['http_code'] == '201')
 			) {
