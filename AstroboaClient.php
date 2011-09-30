@@ -57,9 +57,10 @@ class AstroboaClient {
 	}
 
 	
-	public function getObjectCollectionByObjectType($objectType, $offset=0, $limit=50, $orderBy) {
-		
-		$collectionQueryUrl = $this->objectApiPath . '?' . 'cmsQuery=contentTypeName=%22' . $objectType . '%22' . '&offset=' . $offset . '&limit=' . $limit;
+	public function getObjectCollectionByObjectType($objectType, $projectionPaths, $offset=0, $limit=50, $orderBy) {
+		$query = 'contentTypeName="' .  $objectType . '"';
+		$query = urlencode($query);
+		$collectionQueryUrl = $this->objectApiPath . '?' . 'cmsQuery=' . $query . '&offset=' . $offset . '&limit=' . $limit;
 		if ($orderBy != null && $orderBy != "") {
 			$orderBy = urlencode($orderBy);
 			$collectionQueryUrl = $collectionQueryUrl . '&orderBy=' . $orderBy;
