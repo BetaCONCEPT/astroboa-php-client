@@ -1,6 +1,6 @@
 <?php 
 /**
- * Copyright (C) 2005-2011 BetaCONCEPT LP.
+ * Copyright (C) 2005-2012 BetaCONCEPT Limited
  *
  * This file is part of Astroboa.
  *
@@ -58,7 +58,7 @@ class AstroboaClient {
 
 	
 	public function getObjectCollectionByObjectType($objectType, $projectionPaths, $offset=0, $limit=50, $orderBy) {
-		$query = 'contentTypeName="' .  $objectType . '"';
+		$query = 'objectType="' .  $objectType . '"';
 		$query = urlencode($query);
 		$collectionQueryUrl = $this->objectApiPath . '?' . 'cmsQuery=' . $query . '&offset=' . $offset . '&limit=' . $limit;
 		if ($orderBy != null && $orderBy != "") {
